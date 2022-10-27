@@ -1,17 +1,13 @@
 import type { NextPage } from "next";
-import { getSession } from "next-auth/react";
-import Head from "next/head";
-import Image from "next/image";
-import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
-import { Button, Container, Card, Row, Col } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 
 const Home: NextPage = ({ posts }: any) => {
-  if(!posts.length) return <h2>Loading...</h2>
+  if (!posts.length) return <h2>Loading...</h2>;
   return (
     <Container fluid className={styles.container}>
       <Row xl={4} md={3} sm={2} xs={1} className="gy-4">
-        {posts.map((_ : any) => (
+        {posts.map((_: any) => (
           <Col key={_.id}>
             <Card>
               <Card.Body>
@@ -47,7 +43,7 @@ const Home: NextPage = ({ posts }: any) => {
 //   return { props: { session } };
 // };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (context: any) => {
   try {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/posts"

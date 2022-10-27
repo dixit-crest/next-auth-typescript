@@ -20,6 +20,9 @@ const PostDetail = (props: any) => {
 
 export const getStaticProps = async (context: any) => {
   try {
+
+    // we can retrive data directly from databse to avoid
+    // calling extra api call
     const id = context.params.id + "";
     const post = await fetch(
       "https://jsonplaceholder.typicode.com/posts/" + id
