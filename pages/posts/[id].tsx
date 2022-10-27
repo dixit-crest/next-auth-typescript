@@ -3,14 +3,14 @@ import Card from "react-bootstrap/Card";
 
 const PostDetail = (props: any) => {
   const { post: _ } = props;
-  if(!_) return <h2>Loading...</h2>
+  if (!_) return <h2>Loading...</h2>;
 
   return (
     <Card>
       <Card.Body>
-        <Card.Title>{_.title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-        <Card.Text>{_.body}</Card.Text>
+        <Card.Title className="text-capitalize">{_.title}</Card.Title>
+        {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
+        <Card.Text style={{ whiteSpace: "pre-line" }}>{_.body}</Card.Text>
         <Card.Link href="#">Card Link</Card.Link>
         <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
